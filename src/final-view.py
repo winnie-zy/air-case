@@ -9,7 +9,6 @@ import logging
 import os
 import psycopg2
 
-
 POSTGRES = ''
 DATABASE = ''
 USER_NAME = ''

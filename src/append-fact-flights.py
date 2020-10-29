@@ -15,7 +15,6 @@ DATABASE = ''
 USER_NAME = ''
 PASSWORD = ''
 SCHEMA = ''
-charset = ''
 logging.basicConfig(level=logging.INFO)
 
 
@@ -57,9 +56,7 @@ def handle_fact_flights():
                            A.DESTAIRPORTCODE=C.DESTAIRPORTCODE and
                            A.DISTANCE=C.DISTANCE 
                        left join DIM_AIRPLANE B
-                       on B.TAILNUM=C.TAILNUM and
-                          B.AIRLINECODE=C.AIRLINECODE and 
-                          B.AIRLINENAME=C.AIRLINENAME
+                       on B.TAILNUM=C.TAILNUM 
                      """)
         conn.commit()
         cur.close()

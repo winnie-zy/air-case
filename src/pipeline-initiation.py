@@ -104,6 +104,8 @@ def create_postgre_tables():
                                FLIGHTNUM varchar(255),
                                ORIGINAIRPORTCODE varchar(255),
                                DESTAIRPORTCODE varchar(255),
+                               CRSDEPTIME varchar(255),
+                               CRSARRTIME varchar(255),
                                DISTANCE integer
                              )""")
             logging.info(
@@ -113,7 +115,10 @@ def create_postgre_tables():
                                AIRPLANE_SKEY SERIAL PRIMARY KEY,
                                TAILNUM varchar(255),
                                AIRLINECODE varchar(255),
-                               AIRLINENAME varchar(255)
+                               AIRLINENAME varchar(255),
+                               CURRENT_FLAG char(1),
+                               EFFT_DATE date,
+                               EXPY_DATE date
                              )""")
             logging.info("SUCCESS: Create table  DIM_AIRPLANE succeessfully")
             # create an  empty dimention table 'DIM_AIRPORT'
@@ -121,7 +126,10 @@ def create_postgre_tables():
                                AIRPORT_SKEY SERIAL PRIMARY KEY,
                                AIRPORTCODE varchar(255),
                                AIRPORTNAME varchar(255),
-                               CITYNAME varchar(255)
+                               CITYNAME varchar(255),
+                               CURRENT_FLAG char(1),
+                               EFFT_DATE date,
+                               EXPY_DATE date
                              )""")
             logging.info("SUCCESS: Create table  DIM_AIRPORT succeessfully")
             # create an empty dimention table 'DIM_AIR_ROUTE'
@@ -130,7 +138,12 @@ def create_postgre_tables():
                                FLIGHTNUM varchar(255),
                                ORIGINAIRPORTCODE varchar(255),
                                DESTAIRPORTCODE varchar(255),
-                               DISTANCE integer
+                               CRSDEPTIME varchar(255),
+                               CRSARRTIME varchar(255),
+                               DISTANCE integer,
+                               CURRENT_FLAG char(1),
+                               EFFT_DATE date,
+                               EXPY_DATE date
                              )""")
             logging.info("SUCCESS: Create table  DIM_AIR_ROUTE succeessfully")
             # create an empty fact table ' FACT_FLIGHTS'
